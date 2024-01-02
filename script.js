@@ -30,12 +30,12 @@ let firsttime = true;
 let iss_coordinates = [];
 const api_iss = "https://api.wheretheiss.at/v1/satellites/25544";
 
+let velocity = [];
 async function get_iss() {
   const response = await fetch(api_iss);
   const data = await response.json();
   let { latitude, longitude } = data;
-  let lat = data.latitude;
-  let lon = data.longitude;
+  velocity.push([velocity.length + 1, data.velocity]);
   iss_coordinates.push([latitude, longitude]);
   //main.innerHTML = `<h1>${latitude},${longitude}</h1>`;
   let issUrl = "data/iss.png";
@@ -97,11 +97,3 @@ function clickMarker(marker, lat, lng) {
     map.flyTo([lat, lng]);
   });
 }
-// let dist = [];
-// function distance(multipoint) {
-//   for (i in multipoint.length) {
-//     let d = map.distance(multipoint[i], multipoint[i - 1]);
-//     dist.push([i, d]);
-//   }
-//   return dist;
-// }
