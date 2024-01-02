@@ -9,3 +9,17 @@ body {
   margin: 0;
   padding: 0;
 }
+h1 {
+  text-align: center;
+  text-decoration: solid;
+}
+#sub_title {
+  text-decoration: none;
+  color: black;
+}
+p {
+  text-decoration: underline;
+  font-style: oblique;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}

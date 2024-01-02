@@ -42,7 +42,6 @@ async function get_iss() {
 
   addMarker(latitude, longitude, issUrl);
   //console.log(lat, lon);
-  return { lat, lon };
 }
 
 //create custom marker
@@ -65,6 +64,17 @@ function addMarker(lat, lng, iconUrl) {
     firsttime = false;
   }
   clickMarker(marker, lat, lng);
+  console.log(velocity[velocity.length - 1]);
+  marker
+    .bindTooltip(
+      `<h1>International Space Station </h1>` +
+        `<p>Velocity: <span id="sub_title">${
+          velocity[velocity.length - 1]
+        }</span></p>` +
+        `<p>Latitude: <span id="sub_title">${lat}</span></p>` +
+        `<p>Longitude: <span id="sub_title">${lng}</span></p>`
+    )
+    .addTo(map);
 }
 setInterval(get_iss, 1000);
 
