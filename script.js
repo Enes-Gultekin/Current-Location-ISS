@@ -37,7 +37,6 @@ async function get_iss() {
   let { latitude, longitude } = data;
   velocity.push([velocity.length + 1, data.velocity]);
   iss_coordinates.push([latitude, longitude]);
-  //main.innerHTML = `<h1>${latitude},${longitude}</h1>`;
   let issUrl = "data/iss.png";
 
   addMarker(latitude, longitude, issUrl);
@@ -64,13 +63,13 @@ function addMarker(lat, lng, iconUrl) {
     firsttime = false;
   }
   clickMarker(marker, lat, lng);
-  console.log(velocity[velocity.length - 1]);
+  //console.log(velocity[velocity.length - 1]*);
   marker
     .bindTooltip(
       `<h1>International Space Station </h1>` +
         `<p>Velocity: <span id="sub_title">${
           velocity[velocity.length - 1]
-        }</span></p>` +
+        } MpH</span></p>` +
         `<p>Latitude: <span id="sub_title">${lat}</span></p>` +
         `<p>Longitude: <span id="sub_title">${lng}</span></p>`
     )
